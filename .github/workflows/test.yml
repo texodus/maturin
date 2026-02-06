@@ -38,10 +38,10 @@ jobs:
       fail-fast: false
       matrix:
         os:
-          - ubuntu-latest
-          - ubuntu-22.04-arm
-          - macos-15-intel
-          - macos-latest
+          # - ubuntu-latest
+          # - ubuntu-22.04-arm
+          # - macos-15-intel
+          # - macos-latest
           - windows-latest
           - windows-11-arm
         python-version:
@@ -403,8 +403,7 @@ jobs:
       - run: chmod +x bin/maturin
       - uses: dtolnay/rust-toolchain@stable
         with:
-          targets:
-            ${{ matrix.platform.target }}
+          targets: ${{ matrix.platform.target }}
       - name: Build wheels
         run: |
           set -ex
